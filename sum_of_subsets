@@ -1,0 +1,18 @@
+def is_valid_set(candidate, target_sum, current_sum, start_index, nums):
+    return current_sum == target_sum
+
+def sum_of_subsets_backtracking(candidate, target_sum, current_sum, start_index, nums):
+    if is_valid_set(candidate, target_sum, current_sum, start_index, nums):
+        print("Subset is", tuple(candidate))
+    
+    for i in range(start_index, len(nums)):
+        candidate.append(nums[i])
+        sum_of_subsets_backtracking(candidate, target_sum, current_sum + nums[i], i + 1, nums)
+        candidate.pop()
+
+# User input for Task 1
+nums_task1 = list(map(int, input("Enter the set elements (comma-separated): ").split(',')))
+target_sum_task1 = int(input("Enter the target sum: "))
+
+print("Output:")
+sum_of_subsets_backtracking([], target_sum_task1, 0, 0, nums_task1)
