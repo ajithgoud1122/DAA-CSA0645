@@ -1,0 +1,12 @@
+def factorial_recursive(n):
+    if n == 0 or n == 1:
+        return 1
+    else:
+        return n * factorial_recursive(n - 1)
+
+# User input for Task 4
+num_task4 = int(input("Enter a number to find its factorial: "))
+
+result_task4 = factorial_recursive(num_task4)
+
+print("Factorial:", result_task4)
