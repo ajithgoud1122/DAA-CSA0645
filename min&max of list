@@ -1,0 +1,15 @@
+def find_min_max(arr, start, end):
+    if start == end:
+        return arr[start], arr[start]
+    elif end - start == 1:
+        return (arr[start], arr[end]) if arr[start] < arr[end] else (arr[end], arr[start])
+    else:
+        mid = (start + end) // 2
+        left_min, left_max = find_min_max(arr, start, mid)
+        right_min, right_max = find_min_max(arr, mid + 1, end)
+        return min(left_min, right_min), max(left_max, right_max)
+
+arr_input = list(map(int, input("Enter list of integers (comma-separated): ").split(',')))
+
+min_val, max_val = find_min_max(arr_input, 0, len(arr_input) - 1)
+print("Min val =", min_val, ", Max Value =", max_val)
