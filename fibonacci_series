@@ -1,0 +1,27 @@
+def fibonacci_sum_even(n):
+    if n <= 0:
+        return 0
+
+    fib_sum = 0
+    a, b = 0, 1
+
+    while b <= n:
+        if b % 2 == 0:
+            fib_sum += b
+        a, b = b, a + b
+
+    return fib_sum
+
+def main():
+    try:
+        n = int(input("Enter the limit (n): "))
+        if n < 0:
+            print("Please enter a positive integer.")
+            return
+        even_fib_sum = fibonacci_sum_even(n)
+        print("Sum of even Fibonacci numbers up to", n, ":", even_fib_sum)
+    except ValueError:
+        print("Invalid input. Please enter a valid integer.")
+
+if __name__ == "__main__":
+    main()
