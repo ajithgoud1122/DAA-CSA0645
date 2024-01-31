@@ -1,0 +1,18 @@
+def binomial_coefficient(n, k):
+    if k == 0 or n == k:
+        return 1
+    
+    dp = [[0] * (k + 1) for _ in range(n + 1)]
+
+    for i in range(n + 1):
+        for j in range(min(i, k) + 1):
+            if j == 0 or j == i:
+                dp[i][j] = 1
+            else:
+                dp[i][j] = dp[i - 1][j - 1] + dp[i - 1][j]
+
+    return dp[n][k]
+
+result_binomial = binomial_coefficient(8, 8)
+
+print("Binomial Coefficient for n=8, k=8:", result_binomial)
