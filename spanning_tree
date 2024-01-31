@@ -1,0 +1,40 @@
+
+def prim(graph):
+    min_span_tree = []
+    visited = set()
+    start_vertex = int(input("Enter the starting vertex: "))
+    heap = [(0, start_vertex)]
+
+    while heap:
+        cost, current_vertex = heappop(heap)
+
+        if current_vertex not in visited:
+            visited.add(current_vertex)
+            min_span_tree.append((current_vertex, cost))
+
+            for neighbor, neighbor_cost in graph[current_vertex]:
+                if neighbor not in visited:
+                    heappush(heap, (neighbor_cost, neighbor))
+
+    return min_span_tree
+graph = {}
+edges = int(input("Enter the number of edges: "))
+
+for _ in range(edges):
+
+;    vertex1 = int(input("Enter the first vertex: "))
+    vertex2 = int(input("Enter the second vertex: "))
+    cost = int(input(f"Enter the cost for the edge ({vertex1}, {vertex2}): "))
+    
+    if vertex1 not in graph:
+        graph[vertex1] = []
+    if vertex2 not in graph:
+        graph[vertex2] = []
+    
+    graph[vertex1].append((vertex2, cost))
+    graph[vertex2].append((vertex1, cost))
+
+min_span_tree = prim(graph)
+print("Minimum Spanning Tree:")
+for edge in min_span_tree:
+    print(f"Edge: {edge[0]} - Cost: {edge[1]}")
