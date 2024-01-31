@@ -1,0 +1,8 @@
+def is_palindrome(input_str):
+    input_str = input_str.lower()
+    return input_str == input_str[::-1]
+
+# User Input
+test_case = input("Enter a string: ")
+result = "Palindrome" if is_palindrome(test_case) else "Not Palindrome"
+print(result)
