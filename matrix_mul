@@ -1,0 +1,25 @@
+def strassen_matrix_multiply(A, B):
+    a, b, c, d = A
+    e, f, g, h = B
+
+    p1 = a * (f - h)
+    p2 = (a + b) * h
+    p3 = (c + d) * e
+    p4 = d * (g - e)
+    p5 = (a + d) * (e + h)
+    p6 = (b - d) * (g + h)
+    p7 = (a - c) * (e + f)
+
+    result_a = p5 + p4 - p2 + p6
+    result_b = p1 + p2
+    result_c = p3 + p4
+    result_d = p1 + p5 - p3 - p7
+
+    return result_a, result_b, result_c, result_d
+
+matrix_A_task3 = list(map(int, input("Enter the elements of matrix A (comma-separated): ").split(',')))
+matrix_B_task3 = list(map(int, input("Enter the elements of matrix B (comma-separated): ").split(',')))
+
+result_task3 = strassen_matrix_multiply(matrix_A_task3, matrix_B_task3)
+
+print("Output:", result_task3)
