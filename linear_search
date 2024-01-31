@@ -1,0 +1,16 @@
+def linear_search(arr, key):
+    for i in range(len(arr)):
+        if arr[i] == key:
+            return i
+    return -1
+
+# User input for Task 4
+arr_task4 = list(map(int, input("Enter the array elements (space-separated): ").split()))
+key_task4 = int(input("Enter the key element: "))
+
+result_task4 = linear_search(arr_task4, key_task4)
+
+if result_task4 != -1:
+    print(f"Element found in position {result_task4 + 1}")
+else:
+    print("Not found")
