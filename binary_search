@@ -1,0 +1,20 @@
+def binary_search(nums, target):
+    left, right = 0, len(nums) - 1
+
+    while left <= right:
+        mid = left + (right - left) // 2
+
+        if nums[mid] == target:
+            return mid
+        elif nums[mid] < target:
+            left = mid + 1
+        else:
+            right = mid - 1
+
+    return -1
+
+nums_input = list(map(int, input("Enter sorted array of integers (comma-separated): ").split(',')))
+target_input = int(input("Enter the target integer: "))
+
+result = binary_search(nums_input, target_input)
+print("Index of target:", result)
