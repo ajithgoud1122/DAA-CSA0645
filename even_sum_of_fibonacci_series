@@ -1,0 +1,13 @@
+def even_sum_fibonacci(n):
+    a, b = 0, 1
+    even_sum = 0
+    for _ in range(n):
+        if a % 2 == 0:
+            even_sum += a
+        a, b = b, a + b
+    return even_sum
+
+# User Input
+n_input = int(input("Enter a positive integer n: "))
+result = even_sum_fibonacci(n_input)
+print(result)
