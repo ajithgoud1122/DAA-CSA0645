@@ -1,0 +1,9 @@
+def gcd(a, b):
+    if b == 0:
+        return a
+    else:
+        return gcd(b, a % b)
+
+a_input, b_input = map(int, input("Enter two integers separated by space: ").split())
+result_gcd = gcd(a_input, b_input)
+print("GCD for ({}, {}):".format(a_input, b_input), result_gcd)
