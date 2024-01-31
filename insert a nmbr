@@ -1,0 +1,18 @@
+def insert_number_in_list(lst, num, position):
+    if position == "beginning":
+        lst.insert(0, num)
+    elif position == "middle":
+        middle_index = len(lst) // 2
+        lst.insert(middle_index, num)
+    elif position == "last":
+        lst.append(num)
+    else:
+        print("Invalid position")
+
+# User Input
+my_list = [int(x) for x in input("Enter a list of integers separated by space: ").split()]
+num_to_insert = int(input("Enter the number to insert: "))
+insert_position = input("Enter the position to insert (beginning/middle/last): ")
+
+insert_number_in_list(my_list, num_to_insert, insert_position)
+print("List after insertion:", my_list)
