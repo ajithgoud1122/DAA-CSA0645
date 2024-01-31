@@ -1,0 +1,19 @@
+def reverse_number(num):
+    try:
+        return int(str(num)[::-1])
+    except ValueError:
+        return "Illegal input"
+
+def input_number():
+    try:
+        return int(input("Enter a number: "))
+    except ValueError:
+        print("Invalid input. Please enter an integer.")
+        return None
+
+def process_and_print_result(num_input):
+    if num_input is not None:
+        result = reverse_number(num_input)
+        print(f"Input: {num_input}, Output: {result}")
+
+process_and_print_result(input_number())
