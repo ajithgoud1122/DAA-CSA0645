@@ -1,0 +1,26 @@
+def find_mth_max_and_nth_min(arr, m, n):
+    arr.sort(reverse=True)
+    
+    if m <= 0 or n <= 0 or m > len(arr) or n > len(arr) or m == n:
+        return "Illegal input"
+    
+    mth_max = arr[m - 1]
+    nth_min = sorted(set(arr))[n - 1]
+    
+    return mth_max + nth_min, mth_max - nth_min
+
+
+def input_array():
+    try:
+        arr = list(map(int, input("Enter the array elements (comma-separated): ").split(',')))
+        return arr
+    except ValueError:
+        print("Invalid input. Please enter integers only.")
+        return None
+
+arr_a = input_array()
+if arr_a:
+    m_a = int(input("Enter the value of M: "))
+    n_a = int(input("Enter the value of N: "))
+    result_a = find_mth_max_and_nth_min(arr_a, m_a, n_a)
+    print("Result:", result_a)
